@@ -11,17 +11,23 @@ public class Conference extends Event {
     }
 
     public void askForGoodieBags(){
-        if(!goodieBagsDistributed) {
-            numberOfGoodieBags -= getNumberOfGuests();
+        if(isStarted()) {
+            System.out.println("Asked for goodie bags");
 
-            if (numberOfGoodieBags < 0) {
-                numberOfGoodieBags = 0;
-                System.out.println("No goodie bags left!");
+            if (!goodieBagsDistributed) {
+                numberOfGoodieBags -= getNumberOfGuests();
+
+                if (numberOfGoodieBags < 0) {
+                    numberOfGoodieBags = 0;
+                    System.out.println("No goodie bags left!");
+                }
+                goodieBagsDistributed = true;
+            } else {
+                System.out.println("Goodie bags already distributed!");
             }
-            goodieBagsDistributed = true;
         }
         else {
-            System.out.println("Goodie bags already distributed!");
+            System.out.println("First start the event");
         }
     }
 }

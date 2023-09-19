@@ -21,6 +21,10 @@ public abstract class Event {
     public void start()
     {
         started = organisers.size() >= 3 && helpers.size() >= 10;
+
+        if(!started){
+            System.out.println("The event cannot start without minimum of staff");
+        }
     }
 
     public boolean isStarted() {

@@ -10,11 +10,18 @@ public class CocktailParty extends Event {
 
     public void requestCoktails()
     {
-        numberOfCocktails -= getNumberOfGuests();
+        if(isStarted()) {
+            System.out.println("Cocktails requested!");
+            numberOfCocktails -= getNumberOfGuests();
 
-        if(numberOfCocktails <= 0){
-            numberOfCocktails = 0;
-            System.out.println("No cocktails left!");
+
+            if (numberOfCocktails <= 0) {
+                numberOfCocktails = 0;
+                System.out.println("No cocktails left!");
+            }
+        }
+        else {
+            System.out.println("First start the event");
         }
     }
 }
